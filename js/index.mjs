@@ -1,7 +1,9 @@
+import { API_POSTS_URL } from "./constants.mjs";
+
 
 async function fetchData() {
     try {
-        const response = await fetch('https://api.noroff.dev/api/v1/rainy-days');
+        const response = await fetch(API_POSTS_URL);
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
@@ -18,15 +20,15 @@ async function createJacketinHTML() {
     const jackets = await fetchData();
     const jacketSection = document.getElementById("jacketsSection");
 
-    for (var i = 0; i <= jackets.length; i++) {
+    for (var i = 0; i < jackets.length; i++) {
         const jacketListItem = document.createElement("li");
-        jacketListItem.classList.add('jacketProduct'); 
+        jacketListItem.classList.add('jacketProduct');
 
         //Create image
         const jacketImage = document.createElement("img");
         jacketImage.src = `${jackets[i].image}`;
 
-        //Title h3
+        //Title h2
         const jacketTitle = document.createElement("h2");
         jacketTitle.textContent = `${jackets[i].title}`;
 
@@ -37,7 +39,7 @@ async function createJacketinHTML() {
         //Color
         const jacketColor = document.createElement("p");
         jacketColor.textContent = `${jackets[i].baseColor}`;
-        
+
         //Size
         const jacketSize = document.createElement("p");
         jacketSize.textContent = `${jackets[i].sizes}`;
