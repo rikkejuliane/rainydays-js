@@ -1,6 +1,5 @@
 import { API_POSTS_URL } from "./constants.mjs";
 
-
 async function fetchData() {
     try {
         const loadingSpinner = document.getElementById('loading');
