@@ -3,18 +3,45 @@ import { API_POSTS_URL } from "./constants.mjs";
 
 async function fetchData() {
     try {
+        const loadingSpinner = document.getElementById('loading');
+        loadingSpinner.style.display = 'block';
+
         const response = await fetch(API_POSTS_URL);
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
         const data = await response.json();
+
+        loadingSpinner.style.display = 'none';
+
         return data;
     } catch (error) {
         console.error('Error fetching data:', error);
+
+        const loadingSpinner = document.getElementById('loading');
+        loadingSpinner.style.display = 'none';
+
+        throw error;
     }
 }
 
-fetchData();
+async function fetchDataWithLoadingIndicator() {
+    const loadingSpinner = document.getElementById('loading');
+    try {
+        loadingSpinner.style.display = 'block';
+        const data = await fetchData();
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+
+    } finally {
+        loadingSpinner.style.display = 'none';
+    }
+}
+
+fetchDataWithLoadingIndicator();
+
+
 
 async function createJacketinHTML() {
     const jackets = await fetchData();
