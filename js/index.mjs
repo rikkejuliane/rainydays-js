@@ -1,6 +1,6 @@
 import { API_POSTS_URL } from "./constants.mjs";
 
-async function fetchData() {
+export async function fetchData() { // FILTERING 
     try {
         const loadingSpinner = document.getElementById('loading');
         loadingSpinner.style.display = 'block';
@@ -17,38 +17,22 @@ async function fetchData() {
     } catch (error) {
         console.error('Error fetching data:', error);
 
-        const loadingSpinner = document.getElementById('loading');
-        loadingSpinner.style.display = 'none';
-
         throw error;
     }
 }
 
-async function fetchDataWithLoadingIndicator() {
-    const loadingSpinner = document.getElementById('loading');
-    try {
-        loadingSpinner.style.display = 'block';
-        const data = await fetchData();
-
-    } catch (error) {
-        console.error('Error fetching data:', error);
-
-    } finally {
-        loadingSpinner.style.display = 'none';
-    }
-}
-
-fetchDataWithLoadingIndicator();
+fetchData();
 
 
-
-async function createJacketinHTML() {
+export async function createJacketinHTML() { //CAROSUEL 
     const jackets = await fetchData();
     const jacketSection = document.getElementById("jacketsSection");
 
     for (var i = 0; i < jackets.length; i++) {
         const jacketListItem = document.createElement("li");
         jacketListItem.classList.add('jacketProduct');
+
+        console.log(jackets.length);
 
         //Create image
         const jacketImage = document.createElement("img");
