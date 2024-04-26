@@ -10,7 +10,7 @@
 
 *,
 *::after,
-*::befor {
+*::before {
   box-sizing: border-box;
 }
 
@@ -104,36 +104,6 @@ h1 {
   padding: 25px;
 }
 
-.section1 {
-  background-color: #51584a;
-  width: 100%;
-  height: 130px;
-  padding: 19px;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.bulk {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 160px;
-}
-
-.bulk-big-text {
-  font-size: 1.225rem;
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 700;
-  color: #fff;
-  padding: 8px;
-}
-
-.bulk-small-text {
-  font-size: 0.975rem;
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 500;
-  color: #fff;
-}
 
 .section2 {
   width: 80%;
