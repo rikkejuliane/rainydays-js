@@ -1,9 +1,8 @@
+import { hideLoader, showLoader } from "./loader.mjs";
 
 export async function fetchData(url) {
     try {
-        // Put loading spinner in its own .mjs 
-        // const loadingSpinner = document.getElementById('loading');
-        //loadingSpinner.style.display = 'block';
+        showLoader();
 
         const response = await fetch(url);
         if (!response.ok) {
@@ -11,12 +10,13 @@ export async function fetchData(url) {
         }
         const data = await response.json();
 
-        // loadingSpinner.style.display = 'none';
-
         return data;
+
     } catch (error) {
         console.error('Error fetching data:', error);
 
         throw error;
+    } finally {
+        hideLoader();
     }
 }

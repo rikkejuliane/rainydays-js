@@ -1,0 +1,49 @@
+.section3 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  #jacketsSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+  
+  .jacketProduct img {
+    width: 300px;
+    height: 350px;
+  }
+
+  .jacketProduct {
+    background-color: #fff;
+    padding: 40px;
+  }
+  
+  #loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loader {
+    border: 7px solid #3c3c3c;
+    border-left-color: transparent;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    animation: spin-loader 1s linear infinite;
+  }
+  
+  @keyframes spin-loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
