@@ -104,7 +104,6 @@ h1 {
   padding: 25px;
 }
 
-
 .section2 {
   width: 80%;
   margin-right: auto;
@@ -129,7 +128,77 @@ h1 {
   font-size: 1.363rem;
 }
 
+/*  */
+.section3, .section3-shop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
 
+#jacketsSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.jacketProduct img {
+  width: 300px;
+  height: 350px;
+}
+
+.jacketProduct {
+  background-color: #fff;
+  padding: 40px;
+}
+
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.loader {
+  border: 7px solid #3c3c3c;
+  border-left-color: transparent;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin-loader 1s linear infinite;
+}
+
+@keyframes spin-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* CAROUSEL */
+.carousel-container {
+  width: 90%;
+  overflow: hidden;
+  margin: 20px auto;
+  position: relative;
+  background-color: #fff;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.carousel-image {
+  width: 33.333%;
+  padding: 10px;
+  flex-shrink: 0;
+}
 
 .section4 {
   position: relative;
