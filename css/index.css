@@ -1,26 +1,12 @@
-.section-men,
-.section-women {
-  position: relative;
-}
 
+
+
+/* section 4*/
 .section-about,
 .section-contact {
   position: relative;
 }
 
-.btn-women {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.btn-men {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .btn-contact {
   position: absolute;
