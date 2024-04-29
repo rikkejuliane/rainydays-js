@@ -2,4 +2,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
+.add-to-cart-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin-top: 5px;
+  margin: 0 auto;
+  cursor: pointer;
+  background-color: #6e7865;
+  color: white;
+}
 
+.filter-div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.p-filter {
+  font-family: "martel sans", sans-serif;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.363rem;
+}
+
+#all-button,
+#men-button,
+#women-button {
+  background-color: #51584a;
+  border: 1px solid #fff;
+  font-family: "martel sans", sans-serif;
+  font-weight: 700;
+  border-radius: 36px;
+  color: #fff;
+  padding: 0px 20px;
+  text-align: center;
+
+  display: inline-block;
+  font-size: 1rem;
+
+  cursor: pointer;
+}

@@ -1,12 +1,23 @@
 import { createSingleJacketinHTML } from "./createSingleJacketInHtml.mjs";
 
-function createJacketsInHtml(jackets) {
-    const jacketsContainer = document.querySelector('#jacketsSection');
-   for (let i = 0; i < jackets.length; i++){
-    const jacketHtml = createSingleJacketinHTML(jackets[i]);
-    console.log(jacketHtml);
-    jacketsContainer.appendChild(jacketHtml);
-   }
- }
+export function createJacketsInHtml(jackets, genderFilter) {
+  const jacketsContainer = document.querySelector('#jacketsSection');
+  jacketsContainer.textContent = '';
 
-export { createJacketsInHtml };
+  jackets
+    .filter((jackets) => {
+      if (genderFilter === 'All') {
+        return true;
+      }
+      if (genderFilter === 'Male' && jackets.gender == 'Male') {
+        return true;
+      }
+      if (genderFilter === 'Female' && jackets.gender == 'Female') {
+        return true;
+      }
+    })
+    .forEach((jackets) => {
+      const jacketHtml = createSingleJacketinHTML(jackets);
+      jacketsContainer.appendChild(jacketHtml);
+    })
+}

@@ -19,17 +19,33 @@ export function createSingleJacketinHTML(jacket) {
     jacketColor.textContent = `${jacket.baseColor}`;
 
     //Size
-    const jacketSize = document.createElement("p");
-    jacketSize.textContent = `${jacket.sizes}`;
+    const jacketSizeSelect = document.createElement("select");
+    jacketSizeSelect.id = `size-select-${jacket.id}`;
 
-    // Append image and title
+    // Iterate over the sizes array directly
+    jacket.sizes.forEach(size => {
+        const option = document.createElement("option");
+        option.value = size;
+        option.textContent = size;
+        jacketSizeSelect.appendChild(option);
+    });
+
+    // Add to cart button
+    const addToCartButton = document.createElement("button");
+    addToCartButton.textContent = "Add to Cart";
+    addToCartButton.className = "add-to-cart-button";
+    addToCartButton.onclick = function() {
+        console.log(`Added ${jacket.title} size ${jacketSizeSelect.value} to cart`);
+        // Implement additional functionality as needed
+    };
+
+    // Append elements
     jacketListItem.appendChild(jacketImage);
     jacketListItem.appendChild(jacketTitle);
     jacketListItem.appendChild(jacketPrice);
     jacketListItem.appendChild(jacketColor);
-    jacketListItem.appendChild(jacketSize);
+    jacketListItem.appendChild(jacketSizeSelect);
+    jacketListItem.appendChild(addToCartButton);
 
-    // Return the HTML I created
     return jacketListItem;
-
 }

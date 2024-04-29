@@ -129,7 +129,8 @@ h1 {
 }
 
 /*  */
-.section3, .section3-shop {
+.section3,
+.section3-shop {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,12 +148,17 @@ h1 {
 
 .jacketProduct img {
   width: 300px;
-  height: 350px;
+  height: 400px;
 }
 
 .jacketProduct {
   background-color: #fff;
-  padding: 40px;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.jacketProduct h2 {
+  font-size: 20px;
 }
 
 #loading {
