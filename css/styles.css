@@ -238,6 +238,16 @@ h1 {
   color: #000;
 }
 
+
+/*----------Product-------------*/
+.header-img-wrapper-prod,
+  .header-img-prod {
+    height: 20vh;
+    width: 100%;
+  }
+
+
+
 /*----------about-------------*/
 
 .section1-about-wrapper {
@@ -389,9 +399,6 @@ footer {
   margin-right: -5px;
 }
 
-.some-media-phone {
-  display: none;
-}
 
 .newsletter {
   display: flex;

@@ -2,9 +2,17 @@ export function createSingleJacketinHTML(jacket) {
     const jacketListItem = document.createElement("li");
     jacketListItem.classList.add('jacketProduct');
 
+
+    //Create an anchor 
+    const productLink = document.createElement("a");
+    productLink.href = `../product/index.html?id=${jacket.id}`;
+
+
     //Create image
     const jacketImage = document.createElement("img");
     jacketImage.src = `${jacket.image}`;
+    jacketImage.alt = `${jacket.title}`;
+    productLink.appendChild(jacketImage);
 
     //Title h2
     const jacketTitle = document.createElement("h2");
@@ -34,13 +42,13 @@ export function createSingleJacketinHTML(jacket) {
     const addToCartButton = document.createElement("button");
     addToCartButton.textContent = "Add to Cart";
     addToCartButton.className = "add-to-cart-button";
-    addToCartButton.onclick = function() {
+    addToCartButton.onclick = function () {
         console.log(`Added ${jacket.title} size ${jacketSizeSelect.value} to cart`);
         // Implement additional functionality as needed
     };
 
     // Append elements
-    jacketListItem.appendChild(jacketImage);
+    jacketListItem.appendChild(productLink);
     jacketListItem.appendChild(jacketTitle);
     jacketListItem.appendChild(jacketPrice);
     jacketListItem.appendChild(jacketColor);
@@ -49,3 +57,6 @@ export function createSingleJacketinHTML(jacket) {
 
     return jacketListItem;
 }
+
+
+
