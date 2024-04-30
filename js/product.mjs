@@ -14,24 +14,26 @@ function displayJacketDetails(jacket) {
     const detailsDiv = document.createElement('div');
     detailsDiv.classList.add('jacket-info'); // Add a class for styling
 
-    // Create elements for jacket details
+    // Img
     const image = document.createElement('img');
     image.src = jacket.image;
     image.alt = jacket.title;
 
+    // H2
     const title = document.createElement('h2');
     title.textContent = jacket.title;
 
+    // Description
     const description = document.createElement('p');
-    description.textContent = jacket.description; // Use the description field from the jacket object
+    description.textContent = jacket.description;
 
+     //Color
+     const color = document.createElement('p');
+     color.textContent = `Color: ${jacket.baseColor}`;
+
+    // Price
     const price = document.createElement('p');
     price.textContent = `Price: ${jacket.price}`;
-
-    const color = document.createElement('p');
-    color.textContent = `Color: ${jacket.baseColor}`;
-
-   
 
     // Create and fill the size select dropdown
     const sizeSelect = document.createElement("select");
@@ -53,11 +55,11 @@ function displayJacketDetails(jacket) {
     };
 
     // Append elements to detailsDiv
-    detailsDiv.appendChild(title);
     detailsDiv.appendChild(image);
-    detailsDiv.appendChild(price);
-    detailsDiv.appendChild(color);
+    detailsDiv.appendChild(title);
     detailsDiv.appendChild(description);
+    detailsDiv.appendChild(color);
+    detailsDiv.appendChild(price);
     detailsDiv.appendChild(sizeSelect);
     detailsDiv.appendChild(addToCartButton);
 
