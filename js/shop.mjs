@@ -28,3 +28,4 @@ filterWomenGenderButton.addEventListener('click', () => {
 })
 
 shop()
+

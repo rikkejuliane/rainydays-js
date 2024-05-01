@@ -1,5 +1,6 @@
 import { fetchData } from './fetchData.mjs';
 import { API_JACKETS_URL } from './constants.mjs';
+import { addToCart } from './cartUtils.mjs';
 
 async function fetchJacketDetails(jacketId) {
     const jackets = await fetchData(API_JACKETS_URL);
@@ -8,11 +9,11 @@ async function fetchJacketDetails(jacketId) {
 
 function displayJacketDetails(jacket) {
     const container = document.getElementById('jacketDetails');
-    container.innerHTML = ''; // Clear previous details
+    container.innerHTML = '';
 
     // Create a div for all the jacket details
     const detailsDiv = document.createElement('div');
-    detailsDiv.classList.add('jacket-info'); // Add a class for styling
+    detailsDiv.classList.add('jacket-info');
 
     // Img
     const image = document.createElement('img');
@@ -35,7 +36,7 @@ function displayJacketDetails(jacket) {
     const price = document.createElement('p');
     price.textContent = `Price: ${jacket.price}`;
 
-    // Create and fill the size select dropdown
+    // Size select dropdown
     const sizeSelect = document.createElement("select");
     sizeSelect.id = 'size-select';
     jacket.sizes.forEach(size => {
@@ -45,14 +46,25 @@ function displayJacketDetails(jacket) {
         sizeSelect.appendChild(option);
     });
 
-    // Create Add to Cart button
+    // Add to Cart button
     const addToCartButton = document.createElement("button");
     addToCartButton.textContent = "Add to Cart";
     addToCartButton.className = "add-to-cart-button";
     addToCartButton.onclick = function () {
-        console.log(`Added ${jacket.title} size ${sizeSelect.value} to cart`);
-        // Implement additional functionality as needed
+        const selectedSize = document.getElementById('size-select').value;
+        const productToAdd = {
+            id: jacket.id,
+            title: jacket.title,
+            size: selectedSize,
+            price: jacket.price,
+            color: jacket.baseColor,
+            image: jacket.image
+        };
+        addToCart(productToAdd);
+        console.log(`Added ${jacket.title} size ${selectedSize} to cart`);
+        
     };
+
 
     // Append elements to detailsDiv
     detailsDiv.appendChild(image);
@@ -72,7 +84,7 @@ function getJacketIdFromUrl() {
     return urlSearchParams.get('id');
 }
 
-async function initializeProductPage() {
+async function ProductPage() {
     const jacketId = getJacketIdFromUrl();
     if (jacketId) {
         const jacket = await fetchJacketDetails(jacketId);
@@ -84,4 +96,4 @@ async function initializeProductPage() {
     }
 }
 
-initializeProductPage();
+ProductPage();
