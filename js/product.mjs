@@ -1,6 +1,7 @@
 import { fetchData } from './fetchData.mjs';
 import { API_JACKETS_URL } from './constants.mjs';
 import { addToCart } from './cartUtils.mjs';
+import { showLoader, hideLoader } from './loader.mjs';
 
 async function fetchJacketDetails(jacketId) {
     const jackets = await fetchData(API_JACKETS_URL);
@@ -87,13 +88,16 @@ function getJacketIdFromUrl() {
 async function ProductPage() {
     const jacketId = getJacketIdFromUrl();
     if (jacketId) {
+        showLoader(); // Show loader while fetching data
         const jacket = await fetchJacketDetails(jacketId);
         if (jacket) {
             displayJacketDetails(jacket);
         } else {
             console.error('Jacket not found');
         }
+        hideLoader(); // Hide loader after fetching data
     }
 }
+
 
 ProductPage();

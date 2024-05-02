@@ -22,11 +22,38 @@ export function getCart() {
    */
   export function addToCart(product) {
     const cart = getCart();
-    console.log("Current cart before adding new product:", cart); // Log the current state of the cart before adding
-    cart.push(product);
-    console.log("Cart after adding new product:", cart); // Log the state of the cart after adding
+    const existingProductIndex = cart.findIndex(p => p.id === product.id); // Assuming each product has a unique 'id'
+    if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity++; // Increment quantity
+    } else {
+        product.quantity = 1; // Set initial quantity
+        cart.push(product);
+    }
     saveCart(cart);
-  }
+}
+
+// Add a new function to decrement the product quantity
+export function incrementQuantity(productId) {
+    const cart = getCart();
+    const productIndex = cart.findIndex(p => p.id === productId);
+    if (productIndex !== -1) {
+        cart[productIndex].quantity++;
+        saveCart(cart);
+    }
+}
+
+export function decrementQuantity(productId) {
+    const cart = getCart();
+    const productIndex = cart.findIndex(p => p.id === productId);
+    if (productIndex !== -1) {
+        if (cart[productIndex].quantity > 1) {
+            cart[productIndex].quantity--;
+        } else {
+            cart.splice(productIndex, 1);
+        }
+        saveCart(cart);
+    }
+}
   
   /**
    * Removes a product from the cart by index and logs the action.
