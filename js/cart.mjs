@@ -1,12 +1,12 @@
 import { getCart, removeFromCart, saveCart, incrementQuantity, decrementQuantity } from './cartUtils.mjs';
-import { showLoader, hideLoader } from './loader.mjs'; // Import the loader module
+import { showLoader, hideLoader } from './loader.mjs';
 
 function displayCartItems() {
     showLoader();
     const cartItemsContainer = document.getElementById('cart-items-container');
     cartItemsContainer.innerHTML = '';
 
-    const checkoutButton = document.getElementById('checkout-button'); // Get the Buy Now button by the correct ID
+    const checkoutButton = document.getElementById('checkout-button'); 
 
     const cart = getCart();
     let totalPrice = 0;
@@ -18,41 +18,58 @@ function displayCartItems() {
         hideLoader();
 
         if (checkoutButton) {
-            checkoutButton.style.display = 'none'; // Hide the Buy Now button if the cart is empty
+            checkoutButton.style.display = 'none'; 
         }
     } else {
-        // Show the Buy Now button when there are items in the cart
         if (checkoutButton) {
-            checkoutButton.style.display = 'block'; // Ensure it is visible
+            checkoutButton.style.display = 'block'; 
         }
 
+        // Display elements
         cart.forEach((item, index) => {
             const itemElement = document.createElement('div');
             itemElement.className = 'cart-item';
-            itemElement.innerHTML = `
-                <img src="${item.image}" alt="${item.title}" style="width:100px; height:100px;">
+
+            // Image
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'item-image';
+            imageContainer.innerHTML = `<img src="${item.image}" alt="${item.title}">`;
+
+            // Jacket details
+            const detailsContainer = document.createElement('div');
+            detailsContainer.className = 'item-details';
+            detailsContainer.innerHTML = `
                 <p>Title: ${item.title}</p>
                 <p>Size: ${item.size}</p>
                 <p>Color: ${item.color}</p>
                 <p>Price: $${item.price}</p>
             `;
 
+            // Remove button
+            const buttonsContainer = document.createElement('div');
+            buttonsContainer.className = 'buttons-container';
             const decrementButton = document.createElement('button');
             decrementButton.textContent = '-';
-            decrementButton.setAttribute('data-item-id', item.id);  // Add data attribute
-            decrementButton.className = 'decrement-button';  // Ensure this class is added for delegation
+            decrementButton.setAttribute('data-item-id', item.id);
+            decrementButton.className = 'decrement-button';
 
+            // Add in cart button
             const incrementButton = document.createElement('button');
             incrementButton.textContent = '+';
-            incrementButton.setAttribute('data-item-id', item.id);  // Add data attribute
-            incrementButton.className = 'increment-button';  // Ensure this class is added for delegation
-
+            incrementButton.setAttribute('data-item-id', item.id);
+            incrementButton.className = 'increment-button';
+            
+            // Quantity
             const quantityDisplay = document.createElement('span');
             quantityDisplay.textContent = item.quantity;
 
-            itemElement.appendChild(decrementButton);
-            itemElement.appendChild(quantityDisplay);
-            itemElement.appendChild(incrementButton);
+            buttonsContainer.appendChild(decrementButton);
+            buttonsContainer.appendChild(quantityDisplay);
+            buttonsContainer.appendChild(incrementButton);
+
+            detailsContainer.appendChild(buttonsContainer);  
+            itemElement.appendChild(imageContainer);
+            itemElement.appendChild(detailsContainer);
 
             cartItemsContainer.appendChild(itemElement);
 
@@ -60,13 +77,12 @@ function displayCartItems() {
         });
 
         const totalPriceElement = document.createElement('div');
-        totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+        totalPriceElement.className = 'total-price';
+        totalPriceElement.innerHTML = `<hr><div style="text-align:right;">Total Price: $${totalPrice.toFixed(2)}</div>`;
         cartItemsContainer.appendChild(totalPriceElement);
         hideLoader();
     }
 }
-
-
 
 function setupEventListeners() {
     const cartItemsContainer = document.getElementById('cart-items-container');
@@ -85,7 +101,6 @@ function setupEventListeners() {
         }
     });
 
-    // Attach other relevant listeners here
     const checkoutButton = document.getElementById('checkout-button');
     if (checkoutButton) {
         checkoutButton.addEventListener('click', function () {
@@ -93,14 +108,13 @@ function setupEventListeners() {
                 alert('Your cart is empty.');
                 return;
             }
-            // Assuming the checkout processes or validates the cart contents
-            showLoader(); // Show loader when proceeding to checkout
-            window.location.href = 'checkout.html';  // Redirect to a checkout page
+            showLoader(); 
+            window.location.href = 'checkout.html';  
         });
     }
 }
 
 window.onload = function () {
     displayCartItems();
-    setupEventListeners();  // Setup event listeners after the page has loaded
+    setupEventListeners();  
 }; 

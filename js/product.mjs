@@ -12,7 +12,7 @@ function displayJacketDetails(jacket) {
     const container = document.getElementById('jacketDetails');
     container.innerHTML = '';
 
-    // Create a div for all the jacket details
+    // Div for all the jacket details
     const detailsDiv = document.createElement('div');
     detailsDiv.classList.add('jacket-info');
 
@@ -29,9 +29,9 @@ function displayJacketDetails(jacket) {
     const description = document.createElement('p');
     description.textContent = jacket.description;
 
-     //Color
-     const color = document.createElement('p');
-     color.textContent = `Color: ${jacket.baseColor}`;
+    //Color
+    const color = document.createElement('p');
+    color.textContent = `Color: ${jacket.baseColor}`;
 
     // Price
     const price = document.createElement('p');
@@ -62,12 +62,10 @@ function displayJacketDetails(jacket) {
             image: jacket.image
         };
         addToCart(productToAdd);
-        console.log(`Added ${jacket.title} size ${selectedSize} to cart`);
-        
     };
 
 
-    // Append elements to detailsDiv
+    // Append elements 
     detailsDiv.appendChild(image);
     detailsDiv.appendChild(title);
     detailsDiv.appendChild(description);
@@ -75,8 +73,6 @@ function displayJacketDetails(jacket) {
     detailsDiv.appendChild(price);
     detailsDiv.appendChild(sizeSelect);
     detailsDiv.appendChild(addToCartButton);
-
-    // Append detailsDiv to the main container
     container.appendChild(detailsDiv);
 }
 
@@ -88,14 +84,14 @@ function getJacketIdFromUrl() {
 async function ProductPage() {
     const jacketId = getJacketIdFromUrl();
     if (jacketId) {
-        showLoader(); // Show loader while fetching data
+        showLoader(); 
         const jacket = await fetchJacketDetails(jacketId);
         if (jacket) {
             displayJacketDetails(jacket);
         } else {
             console.error('Jacket not found');
         }
-        hideLoader(); // Hide loader after fetching data
+        hideLoader(); 
     }
 }
 

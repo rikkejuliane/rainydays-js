@@ -1,7 +1,7 @@
 import { API_JACKETS_URL } from "./constants.mjs";
 import { fetchData } from "./fetchData.mjs";
 import { showLoader, hideLoader } from "./loader.mjs";
-import { getCart } from "./cartUtils.mjs";
+
 
 async function loadCarousel() {
     showLoader();

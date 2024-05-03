@@ -6,7 +6,7 @@
         <title>Rainydays︱Waterproof outdoor jackets</title>
         <meta name="description" content="Rainydays︱'Push the Comfort Zone' with our waterproof outdoor jackets">
         <link rel="stylesheet" href="/css/styles.css">
-        <link rel="stylesheet" href="/css/product.css">
+        <link rel="stylesheet" href="/css/checkout.css">
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
         <script src="../js/cart.mjs" type="module"></script>
     </head>
@@ -23,7 +23,7 @@
                             <a class="nav-links" href="/index.html">HOME</a>
                         </li>
                         <li>
-                            <a class="nav-links" href="../shop/index.html">SHOP</a>
+                            <a class="nav-links" href="/shop/index.html">SHOP</a>
                         </li>
                         <li>
                             <a class="nav-links" href="/about/index.html">ABOUT</a>
@@ -34,7 +34,6 @@
                         <li>
                             <a class="nav-links" href="/checkout/index.html">
                                 <img class="cart-icon" src="/assets/BAG.png">
-
                             </a>
                         </li>
                     </ul>
@@ -53,13 +52,19 @@
         </header>
         <main>
             <h1>Checkout</h1>
-            <div id="cart-items-container">
-                <div id="loading" class="loader"></div>
-            </div>
-            <div id="total-price"></div>
-            <a href="../checkout/confirmation/index.html">
-            <button id="checkout-button">Buy now</button>
-        </a>
+            <section class="cart-section">
+                <div id="cart-items-container">
+                    <div id="loading" class="loader"></div>
+                </div>
+                <div id="total-price"></div>
+                <div class="button-div">
+                    <a href="../checkout/confirmation/index.html">
+                        <button id="checkout-button">Buy now</button></a>
+                        <a href="/shop/index.html">
+                        <button id="continue">Continue shopping</button>
+                    </a>
+                </div>
+            </section>
         </main>
         <footer>
             <div class="footer-wrapper1">
