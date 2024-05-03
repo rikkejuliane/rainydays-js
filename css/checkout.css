@@ -54,10 +54,10 @@
   margin-top: 25px;
 }
 
-a {
-  /* text-decoration: none;
+.link-cartgit {
+  text-decoration: none;
   display: flex;
-  flex-direction: row-reverse; */
+  flex-direction: row-reverse;
   justify-content: center;
   margin: 0 auto;
   gap: 20px;
