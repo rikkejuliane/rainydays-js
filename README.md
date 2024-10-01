@@ -7,7 +7,8 @@
 3. [Key Features](#key-features)  
 4. [Installation](#installation)  
 5. [Adding Products to Basket](#adding-products-to-basket)  
-6. [Tech Used 💻](#tech-used-)  
+6. [Tech Used 💻](#tech-used-)
+7. [Contact me](#contact-me)
 
 
 ### Project Overview 👀    
@@ -60,4 +61,9 @@ Alternatively, click the link below to access the live demo:
 * Figma
 * HTML & CSS  
 * JavaScript 
-* Rainy Days API  
+* Rainy Days API
+
+### Contact me 
+Don’t hesitate to reach out to me or connect with me on social media if you have any questions, collaboration ideas, or an exciting new project in mind. I’m always open to new opportunities! 
+🩷 [Instagram](https://www.instagram.com/rikkejuliane/)
+💙 [Linkedin](https://www.linkedin.com/in/rikkejuliane/)
