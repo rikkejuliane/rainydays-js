@@ -7,7 +7,7 @@
 3. [Key Features](#key-features-)  
 4. [Installation](#installation-)  
 5. [Adding Products to Basket](#adding-products-to-basket-)  
-6. [Tech Used 💻](#tech-used-)
+6. [Tech Used](#tech-used-)
 7. [Contact me](#contact-me-)
 
 
