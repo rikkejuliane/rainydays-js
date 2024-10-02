@@ -2,13 +2,13 @@
 <img src="https://github.com/user-attachments/assets/17b885ed-fb8f-4152-9084-a5dd94a6e088" alt="Logo for Rainy Days API" width="600px">
 
 ### Table of Contents 📚  
-1. [Project Overview](#project-overview)  
-2. [User Stories](#user-stories)  
-3. [Key Features](#key-features)  
-4. [Installation](#installation)  
-5. [Adding Products to Basket](#adding-products-to-basket)  
+1. [Project Overview](#project-overview-)  
+2. [User Stories](#user-stories-)  
+3. [Key Features](#key-features-)  
+4. [Installation](#installation-)  
+5. [Adding Products to Basket](#adding-products-to-basket-)  
 6. [Tech Used 💻](#tech-used-)
-7. [Contact me](#contact-me)
+7. [Contact me](#contact-me-)
 
 
 ### Project Overview 👀    
